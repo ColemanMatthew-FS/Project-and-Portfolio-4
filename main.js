@@ -43,19 +43,20 @@ class Main
     }
     submitTown(e){
         e.preventDefault()
-        const input = document.getElementById('entry')
+        let input = document.getElementById('entry')
         const label = document.getElementById('label')
         if(input.value == null){
             label.innerText = "Please enter a valid food"
         }
         else{
-            const baseURL = 'https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query='
-            const URL = baseURL + input.value
-            console.log(input.value)
+            const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
+            input.value = encodeURI(input.value)
+            const URL = baseURL + input.value + '?maxRecipes=10'
+            console.log(URL)
             const options = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Host': 'nutrition-by-api-ninjas.p.rapidapi.com',
+                    'X-RapidAPI-Host': 'recipesapi2.p.rapidapi.com',
 		            'X-RapidAPI-Key': 'bd6b878c0bmshfadcc5873b4a741p16d104jsndb1d935fefd5'
                 }
             };
@@ -68,21 +69,19 @@ class Main
             })
             .then(responseAsJson => {
                 console.log("loadPage")
-                console.log(responseAsJson)
+                console.log(responseAsJson.data[0].name)
                 let intro = document.createElement('p')
                 if(responseAsJson.length == 0){
                     intro.innerHTML ='Please enter a valid food'
                 }
                 else{
-                    intro.innerHTML = 'The meal you entered consists of the following items, obtained using the Nutrition API by API-Ninjas:'
+                    intro.innerHTML = 'There are recipes (not displayed here) for the following foods, obtained using the RecipesAPI by Pickle'
                     const main = document.querySelector('main')
                     main.append(intro)
-                    for(let i=0; i<responseAsJson.length; i++){
+                    for(let i=0; i<responseAsJson.data.length; i++){
                         let example = document.createElement('p')
-                        example.innerHTML = `Item: ${responseAsJson[i].name}`
-                        let example2 = document.createElement('p')
-                        example2.innerHTML = `Calories: ${responseAsJson[i].calories}`
-                        main.append(example, example2)
+                        example.innerHTML = `Item: ${responseAsJson.data[i].name}`
+                        main.append(example)
                     }
                 }
             })

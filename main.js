@@ -46,14 +46,23 @@ class Main
         const input = document.getElementById('airline')
         const label = document.getElementById('label')
         console.log(input.value)
-        if(input.value == null || input.value.length > 4 || input.value.length < 4){
-            label.innerText = "Please enter a 4 digit flight number. Try '8022' for starters"
+        if(input.value == null){
+            label.innerText = "Please enter an airline name"
             
         }
         else{
-            const baseURL = 'http://api.aviationstack.com/v1/flights',
-            accessToken = '?access_key=4590f2a6194dc0e12212323b819f51d0'
-            fetch(baseURL + accessToken)
+            const baseURL = 'https://aviation-reference-data.p.rapidapi.com/airline/search?name='
+            const inputName = input.value
+            const URL = baseURL + inputName
+            console.log(URL)
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Host': 'aviation-reference-data.p.rapidapi.com',
+                    'X-RapidAPI-Key': 'bd6b878c0bmshfadcc5873b4a741p16d104jsndb1d935fefd5'
+                }
+            };
+            fetch(URL, options)
             .then(response => {
                 if (response.ok) {
                     return response.json()
@@ -65,13 +74,13 @@ class Main
                 console.log(responseAsJson)
                 let intro = document.createElement('p')
                 let example = document.createElement('p')
-                intro.innerHTML = 'The following airline name was obtained via an API call using aviationstack:'
-                responseAsJson.data.forEach((element) => {
-                    if(element.flight.number == input.value){
-                        example.innerHTML = `${element.airline.name}, ${element.departure.airport}
-                        to ${element.arrival.airport}, date: ${element.flight_date}`
-                    }
-                })
+                if(responseAsJson.length == 0){
+                    intro.innerHTML ='Please enter a valid airline name'
+                }
+                else{
+                    intro.innerHTML = 'The following airline info was obtained via an API call using Aviation Reference Data:'
+                    example.innerHTML = `Call sign: ${responseAsJson[0].callSign}, Name: ${responseAsJson[0].name}`
+                }
                 const main = document.querySelector('main')
                 main.append(intro, example)
             })

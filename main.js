@@ -39,27 +39,24 @@ class Main
     }
     loadPage(e){
         const form = document.getElementById('form')
-        form.addEventListener('submit', this.submitAirline)
+        form.addEventListener('submit', this.submitTown)
     }
-    submitAirline(e){
+    submitTown(e){
         e.preventDefault()
-        const input = document.getElementById('airline')
+        const input = document.getElementById('entry')
         const label = document.getElementById('label')
-        console.log(input.value)
         if(input.value == null){
-            label.innerText = "Please enter an airline name"
-            
+            label.innerText = "Please enter a valid food"
         }
         else{
-            const baseURL = 'https://aviation-reference-data.p.rapidapi.com/airline/search?name='
-            const inputName = input.value
-            const URL = baseURL + inputName
-            console.log(URL)
+            const baseURL = 'https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query='
+            const URL = baseURL + input.value
+            console.log(input.value)
             const options = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Host': 'aviation-reference-data.p.rapidapi.com',
-                    'X-RapidAPI-Key': 'bd6b878c0bmshfadcc5873b4a741p16d104jsndb1d935fefd5'
+                    'X-RapidAPI-Host': 'nutrition-by-api-ninjas.p.rapidapi.com',
+		            'X-RapidAPI-Key': 'bd6b878c0bmshfadcc5873b4a741p16d104jsndb1d935fefd5'
                 }
             };
             fetch(URL, options)
@@ -73,16 +70,21 @@ class Main
                 console.log("loadPage")
                 console.log(responseAsJson)
                 let intro = document.createElement('p')
-                let example = document.createElement('p')
                 if(responseAsJson.length == 0){
-                    intro.innerHTML ='Please enter a valid airline name'
+                    intro.innerHTML ='Please enter a valid food'
                 }
                 else{
-                    intro.innerHTML = 'The following airline info was obtained via an API call using Aviation Reference Data:'
-                    example.innerHTML = `Call sign: ${responseAsJson[0].callSign}, Name: ${responseAsJson[0].name}`
+                    intro.innerHTML = 'The meal you entered consists of the following items, obtained using the Nutrition API by API-Ninjas:'
+                    const main = document.querySelector('main')
+                    main.append(intro)
+                    for(let i=0; i<responseAsJson.length; i++){
+                        let example = document.createElement('p')
+                        example.innerHTML = `Item: ${responseAsJson[i].name}`
+                        let example2 = document.createElement('p')
+                        example2.innerHTML = `Calories: ${responseAsJson[i].calories}`
+                        main.append(example, example2)
+                    }
                 }
-                const main = document.querySelector('main')
-                main.append(intro, example)
             })
             .catch(err => {
                 console.log(err)

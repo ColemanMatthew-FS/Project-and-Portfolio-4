@@ -69,13 +69,13 @@ class Main
             })
             .then(responseAsJson => {
                 console.log("loadPage")
-                console.log(responseAsJson.data[0].name)
+                console.log(responseAsJson.data)
                 let intro = document.createElement('p')
                 if(responseAsJson.length == 0){
                     intro.innerHTML ='Please enter a valid food'
                 }
                 else{
-                    intro.innerHTML = 'There are recipes (not displayed here) for the following foods, obtained using the RecipesAPI by Pickle'
+                    intro.innerHTML = 'There are recipes for the following foods, obtained using the RecipesAPI by Pickle. For the sake of simplicity, the recipes themselves are not listed here, but the full response is printed to the console.'
                     const main = document.querySelector('main')
                     main.append(intro)
                     for(let i=0; i<responseAsJson.data.length; i++){

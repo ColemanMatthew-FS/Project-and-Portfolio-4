@@ -8,7 +8,7 @@ function Home() {
     const addItem = e => {
         e.preventDefault()
         async function fetchData(){
-          const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
+          /*const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
           e.target.entry.value = encodeURI(e.target.entry.value)
           const URL = baseURL + e.target.entry.value + '?maxRecipes=10'
           const options = {
@@ -28,9 +28,20 @@ function Home() {
             //the name key is paired with the name data from the API
             name: `${recipeData.name}`
           }))
+          console.log(recipeData)*/
+          const testData = {
+            0: {
+                name: 'test'
+            },
+            1: {
+              name: 'test'
+              }
+            }
+          console.log(testData)
           //our state is updated
           updateRecipe([{
-            data: recipeData
+            //data: recipeData
+            data: {name: `test`}
           }])
           recipe && console.log(recipe[0].data)
           navigate(`./Results`, { state: { recipe,}})

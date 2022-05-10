@@ -31,20 +31,20 @@ function Home() {
           console.log(recipeData)*/
           const testData = {
             0: {
-                name: 'test'
+                name: 'test1'
             },
             1: {
-              name: 'test'
+              name: 'test2'
               }
             }
           console.log(testData)
           //our state is updated
           updateRecipe([{
             //data: recipeData
-            data: {name: `test`}
+            data: testData
           }])
           recipe && console.log(recipe[0].data)
-          navigate(`./Results`, { state: { recipe,}})
+          navigate(`./Results`, { state: { testData}})
         }
         fetchData()
     }

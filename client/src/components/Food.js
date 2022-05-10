@@ -2,7 +2,10 @@ import React from 'react'
 
 const Food = props => {
     return (
-        <p>{props.recipeInfo.name}</p>
+        <article>
+            <p>{props.recipeInfo.name}</p>
+            <button onClick={props.seeMore}>View Recipe</button>
+        </article>
     )
 }
 

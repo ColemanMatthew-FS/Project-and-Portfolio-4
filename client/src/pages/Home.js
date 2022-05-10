@@ -8,7 +8,7 @@ function Home() {
     const addItem = e => {
         e.preventDefault()
         async function fetchData(){
-          /*const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
+          const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
           e.target.entry.value = encodeURI(e.target.entry.value)
           const URL = baseURL + e.target.entry.value + '?maxRecipes=10'
           const options = {
@@ -23,28 +23,9 @@ function Home() {
           .catch(err => console.log(err))
           const result = await response.json()
           console.log(result.data)
-          //maps the result into a recipeData object
-          const recipeData = result.data.map( recipeData =>({
-            //the name key is paired with the name data from the API
-            name: `${recipeData.name}`
-          }))
-          console.log(recipeData)*/
-          const testData = {
-            0: {
-                name: 'test1'
-            },
-            1: {
-              name: 'test2'
-              }
-            }
-          console.log(testData)
-          //our state is updated
-          updateRecipe([{
-            //data: recipeData
-            data: testData
-          }])
-          recipe && console.log(recipe[0].data)
-          navigate(`./Results`, { state: { testData}})
+          const recipeData = result.data
+          console.log(recipeData)
+          navigate(`./Results`, { state: { recipeData }})
         }
         fetchData()
     }

@@ -1,14 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import Food from './components/Food'
 import React, {useEffect, useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 function App() {
   const [recipe, updateRecipe] = useState(null)
+  let navigate = useNavigate()
   
   const addItem = e => {
     e.preventDefault()
-    async function fetchData(){
+    navigate(`/pages/Results`)
+    /*async function fetchData(){
       const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
       e.target.entry.value = encodeURI(e.target.entry.value)
       const URL = baseURL + e.target.entry.value + '?maxRecipes=10'
@@ -35,7 +37,7 @@ function App() {
       }])
       recipe && console.log(recipe[0].data)
     }
-    fetchData()
+    fetchData()*/
   }
   return (
     <div className="App">

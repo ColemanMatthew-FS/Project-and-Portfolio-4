@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {useNavigate} from 'react-router-dom'
 
 function Home() {
-    const [recipe, updateRecipe] = useState(null)
     let navigate = useNavigate()
 
     const addItem = e => {
         e.preventDefault()
         async function fetchData(){
           const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
-          e.target.entry.value = encodeURI(e.target.entry.value)
-          const URL = baseURL + e.target.entry.value + '?maxRecipes=10'
+          const entry = encodeURI(e.target.entry.value)
+          const URL = baseURL + entry + '?maxRecipes=10'
           const options = {
             method: 'GET',
             headers: {
@@ -25,6 +24,7 @@ function Home() {
           console.log(result.data)
           const recipeData = result.data
           console.log(recipeData)
+          //sends the response to the Results page
           navigate(`./Results`, { state: { recipeData }})
         }
         fetchData()

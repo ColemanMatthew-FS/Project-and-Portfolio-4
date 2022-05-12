@@ -22,10 +22,16 @@ function Home() {
           .catch(err => console.log(err))
           const result = await response.json()
           console.log(result.data)
-          const recipeData = result.data
-          console.log(recipeData)
-          //sends the response to the Results page
-          navigate(`./Results`, { state: { recipeData }})
+          if (result.data.length > 0){
+            const recipeData = result.data
+            console.log(recipeData)
+            //sends the response to the Results page
+            navigate(`./Results`, { state: { recipeData }})
+          }
+          else {
+            let label = document.getElementById("label")
+            label.innerText = "No results! Try a different food, or wait a little while and try again"
+          }
         }
         fetchData()
     }

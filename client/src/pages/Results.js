@@ -19,7 +19,7 @@ function Results() {
 
     return (
         <div>
-            <p>There are recipes for the following foods, obtained using the RecipesAPI by Pickle. For the sake of simplicity, the recipes themselves are not listed here, but the full response is printed to the console.</p>
+            <p>There are recipes for the following foods, obtained using the RecipesAPI by Pickle.</p>
             {/* If there's anything in the state, it's mapped into Food objects (which consist of a paragraph) */}
             {location && location.state.recipeData.map((element, i) => <Food key={i} recipeInfo={element} seeMore={() =>loadInfo(i)} />)}
         </div>

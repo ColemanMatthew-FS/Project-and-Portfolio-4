@@ -1,5 +1,6 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
+import { FaSearch } from 'react-icons/fa'
 
 function Home() {
     let navigate = useNavigate()
@@ -16,7 +17,8 @@ function Home() {
               'X-RapidAPI-Host': 'recipesapi2.p.rapidapi.com',
               'X-RapidAPI-Key': 'bd6b878c0bmshfadcc5873b4a741p16d104jsndb1d935fefd5'
             }
-          };
+          }
+          console.log(URL)
           //makes the api call
           const response = await fetch(URL, options)
           .catch(err => console.log(err))
@@ -36,15 +38,63 @@ function Home() {
         fetchData()
     }
     return (
-        <div className="App">
-            <form id="form" onSubmit={addItem}>
-                <p>Enter a food and this app will perform a search using the RecipesAPI at https://rapidapi.com/Hrishi1999/api/recipesapi2/</p>
-                <label id="label" htmlFor="entry">(If you don't see anything after 5-20 seconds, please refresh the page and try typing "tomato soup"</label>
-                <input type="text" id="entry" name="entry" required />
-                <button type="submit">Search</button>
+        <div className="App" style={styles.home}>
+          <p style={styles.intro}>Enter a food and this app will perform a search using the RecipesAPI at https://rapidapi.com/Hrishi1999/api/recipesapi2/</p>
+            <form id="form" onSubmit={addItem} style={styles.form}>
+              <label id="label" htmlFor="entry">Enter a meal here</label>
+              <div style={styles.textField}>
+                <input type="text" id="entry" name="entry" placeholder="Search" required style={styles.inputWithIcon}/>
+                <button type="submit" style={styles.inputIcon}><FaSearch/></button>
+              </div>
             </form>
         </div>
     )
 }
 
 export default Home
+
+const styles = {
+  home: {
+    height: '20rem',
+  },
+  intro: {
+    fontSize: '2rem',
+    color: '#fff',
+    textShadow: '1px 1px 0px black',
+  },
+  form: {
+    color: '#fff',
+    fontSize: '1rem',
+    textShadow: '1px 1px 0px black',
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  textField: {
+    display: 'flex',
+    justifyContent: 'center',
+    width: '100%',
+    fontWeight: 'bold',
+    margin: '1rem'
+  },
+  inputWithIcon: {
+    background: '#fff',
+    padding: '10px',
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: '1rem',
+    borderRadius: '10px 0px 0px 10px',
+    borderWidth: '1px',
+    width: '30%',
+    fontFamily: 'Interstate',
+  },
+  inputIcon: {
+    background: '#B2B2B2',
+    padding: '10px',
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: '1rem',
+    borderWidth: '1px',
+    borderRadius: '0px 10px 10px 0px',
+  },
+}

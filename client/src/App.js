@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import Results from './pages/Results'
 import Details from './pages/Details'
 import Header from './components/Header'
+import Background from './images/header.jpg'
+import MyFooter from './components/MyFooter'
 
 function App() {
   
@@ -20,6 +22,7 @@ function App() {
           </Routes>
         </section>
       </main>
+      <MyFooter/>
     </div>
   );
 }
@@ -30,23 +33,22 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    background: '#CDCDCD',
     fontSize: '.75rem',
     fontFamily: 'Interstate',
   },
   main: {
     padding: '55px 25px 0px 0px',
     width: '100%',
+    height: '100%',
     display: 'flex',
     flexDirection: 'row',
-    
   },
   subContainer: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
-    background: '#fff',
+    background: `no-repeat center/100% url(${Background})`,
     borderRadius: '10px',
   },
 }

@@ -9,6 +9,7 @@ function Results() {
     //results page receives the API response
     const location = useLocation()
     console.log(location.state)
+    console.log(location.state.Test.recipeData)
     //If the user selects a recipe, a Details page is created using that recipe's data
     function loadInfo(key){
         console.log(key)
@@ -21,7 +22,7 @@ function Results() {
         <div>
             <p>There are recipes for the following foods, obtained using the RecipesAPI by Pickle.</p>
             {/* If there's anything in the state, it's mapped into Food objects (which consist of a paragraph) */}
-            {location && location.state.recipeData.map((element, i) => <Food key={i} recipeInfo={element} seeMore={() =>loadInfo(i)} />)}
+            {location && location.state.Test.recipeData.map((element, i) => <Food key={i} recipeInfo={element} seeMore={() =>loadInfo(i)} />)}
         </div>
     )
 }

@@ -1,12 +1,16 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
+import Test from '../test.json'
 
 function Home() {
     let navigate = useNavigate()
 
     const addItem = e => {
         e.preventDefault()
+        console.log(Test)
+        navigate(`./Results`, { state: { Test }})
+        /*console.log(Test)
         async function fetchData(){
           const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
           const entry = encodeURI(e.target.entry.value)
@@ -28,14 +32,14 @@ function Home() {
             const recipeData = result.data
             console.log(recipeData)
             //sends the response to the Results page
-            navigate(`./Results`, { state: { recipeData }})
+            navigate(`./Results`, { state: { Test }})
           }
           else {
             let label = document.getElementById("label")
             label.innerText = "No results! Try a different food, or wait a little while and try again"
           }
         }
-        fetchData()
+        fetchData()*/
     }
     return (
         <div className="App" style={styles.home}>

@@ -4,7 +4,6 @@ import Home from './pages/Home'
 import Results from './pages/Results'
 import Details from './pages/Details'
 import Header from './components/Header'
-import Background from './images/header.jpg'
 import MyFooter from './components/MyFooter'
 
 function App() {
@@ -33,11 +32,11 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    fontSize: '.75rem',
+    fontSize: '1rem',
     fontFamily: 'Interstate',
   },
   main: {
-    padding: '55px 25px 0px 0px',
+    padding: '55px 0px 0px 0px',
     width: '100%',
     height: '100%',
     display: 'flex',
@@ -48,7 +47,6 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
-    background: `no-repeat center/100% url(${Background})`,
     borderRadius: '10px',
   },
 }

@@ -2,14 +2,16 @@ import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
 import Test from '../test.json'
+import Background from '../images/header.jpg'
 
 function Home() {
     let navigate = useNavigate()
 
     const addItem = e => {
         e.preventDefault()
-        console.log(Test)
-        navigate(`./Results`, { state: { Test }})
+        const recipeData = Test.data
+        console.log(recipeData)
+        navigate(`./Results`, { state: { recipeData }})
         /*console.log(Test)
         async function fetchData(){
           const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
@@ -60,11 +62,15 @@ export default Home
 const styles = {
   home: {
     height: '20rem',
+    background: `no-repeat center/100% url(${Background})`,
+    width: '100%'
   },
   intro: {
     fontSize: '2rem',
     color: '#fff',
     textShadow: '1px 1px 0px black',
+    margin: '2rem',
+    textAlign: 'center'
   },
   form: {
     color: '#fff',
@@ -93,7 +99,7 @@ const styles = {
     fontFamily: 'Interstate',
   },
   inputIcon: {
-    background: '#B2B2B2',
+    background: '#E6E6E6',
     padding: '10px',
     display: 'flex',
     alignItems: 'center',

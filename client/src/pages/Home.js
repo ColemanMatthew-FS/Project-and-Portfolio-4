@@ -40,7 +40,7 @@ function Home() {
     }
     return (
         <div className="App" style={styles.home}>
-          <p style={styles.intro}>Enter a food and this app will perform a search using the RecipesAPI at https://rapidapi.com/Hrishi1999/api/recipesapi2/</p>
+          <p style={styles.intro}>Enter a food and this app will search for recipes</p>
             <form id="form" onSubmit={addItem} style={styles.form}>
               <label id="label" htmlFor="entry">Enter a meal here</label>
               <div style={styles.textField}>
@@ -63,7 +63,7 @@ const styles = {
   intro: {
     fontSize: '2rem',
     color: '#fff',
-    textShadow: '1px 1px 0px black',
+    textShadow: '5px 5px 5px black',
     margin: '2rem',
     textAlign: 'center'
   },

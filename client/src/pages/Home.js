@@ -9,10 +9,9 @@ function Home() {
 
     const addItem = e => {
         e.preventDefault()
-        const recipeData = Test.data
+        /*const recipeData = Test.data
         console.log(recipeData)
-        navigate(`./Results`, { state: { recipeData }})
-        /*console.log(Test)
+        navigate(`./Results`, { state: { recipeData }})*/
         async function fetchData(){
           const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
           const entry = encodeURI(e.target.entry.value)
@@ -41,7 +40,7 @@ function Home() {
             label.innerText = "No results! Try a different food, or wait a little while and try again"
           }
         }
-        fetchData()*/
+        fetchData()
     }
     return (
         <div className="App" style={styles.home}>

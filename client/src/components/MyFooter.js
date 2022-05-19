@@ -4,7 +4,7 @@ const MyFooter = () => {
     return (
         <footer style={styles.footer}>
             <p>©Matthew Coleman 2022</p>
-            <p>This app is powered by the RecipeAPI made by Pickle and hosted on rapidapi.com</p>
+            <p>This app is powered by the RecipeAPI made by Hrishi Patel and hosted on rapidapi.com</p>
         </footer>
     )
 }

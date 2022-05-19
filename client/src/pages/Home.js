@@ -1,7 +1,6 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
-import Test from '../test.json'
 import Background from '../images/header.jpg'
 
 function Home() {
@@ -9,9 +8,6 @@ function Home() {
 
     const addItem = e => {
         e.preventDefault()
-        /*const recipeData = Test.data
-        console.log(recipeData)
-        navigate(`./Results`, { state: { recipeData }})*/
         async function fetchData(){
           const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
           const entry = encodeURI(e.target.entry.value)
@@ -33,7 +29,7 @@ function Home() {
             const recipeData = result.data
             console.log(recipeData)
             //sends the response to the Results page
-            navigate(`./Results`, { state: { Test }})
+            navigate(`./Results`, { state: { recipeData }})
           }
           else {
             let label = document.getElementById("label")

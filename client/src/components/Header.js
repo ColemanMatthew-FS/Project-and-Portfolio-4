@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header style={styles.myHeader}>
             <div style={styles.left}>
-                <Link to="/client" style={styles.logo}><AiFillHome/></Link>
+                <Link to="/Project-and-Portfolio-4" style={styles.logo}><AiFillHome/></Link>
             </div>
             <div style={styles.center}>
                 <h1>Meal.io</h1>

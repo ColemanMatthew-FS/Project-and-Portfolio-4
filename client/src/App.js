@@ -15,7 +15,7 @@ function App() {
       <main style={styles.main}>
         <section style={styles.subContainer}>
           <Routes>
-            <Route path="/client" element={<Home />} />
+            <Route path="/Project-and-Portfolio-4" element={<Home />} />
             <Route path="Results" element={<Results />} />
             <Route path="Details" element={<Details />} />
           </Routes>

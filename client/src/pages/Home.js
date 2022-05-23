@@ -17,7 +17,7 @@ function Home() {
             method: 'GET',
             headers: {
               'X-RapidAPI-Host': 'recipesapi2.p.rapidapi.com',
-              'X-RapidAPI-Key': 'bd6b878c0bmshfadcc5873b4a741p16d104jsndb1d935fefd5'
+              'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`
             }
           }
           console.log(URL)

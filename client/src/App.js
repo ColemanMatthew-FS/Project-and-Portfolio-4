@@ -1,5 +1,5 @@
 import React from 'react'
-import {HashRouter as Routes, Route } from 'react-router-dom'
+import {Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Results from './pages/Results'
 import Details from './pages/Details'
@@ -15,7 +15,7 @@ function App() {
       <main style={styles.main}>
         <section style={styles.subContainer}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/client" element={<Home />} />
             <Route path="Results" element={<Results />} />
             <Route path="Details" element={<Details />} />
           </Routes>

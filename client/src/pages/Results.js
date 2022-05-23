@@ -13,7 +13,7 @@ function Results() {
         console.log(key)
         const newRecipe = location.state.recipeData.filter(post => location.state.recipeData.indexOf(post) === key)
         console.log(newRecipe)
-        navigate(`../Details`, { state: { newRecipe }})
+        navigate(`/Project-and-Portfolio-4/Details`, { state: { newRecipe }})
     }
 
     return (

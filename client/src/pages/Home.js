@@ -2,14 +2,17 @@ import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
 import Background from '../images/header.jpg'
+import Test from '../test.json'
 
 function Home() {
     let navigate = useNavigate()
 
     const addItem = e => {
         e.preventDefault()
-        async function fetchData(){
-          console.log(`${process.env.REACT_APP_API_KEY}`)
+        const recipeData = Test.data
+        console.log(recipeData)
+        navigate(`/Project-and-Portfolio-4/Results`, { state: { recipeData }})
+        /*async function fetchData(){
           const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
           const entry = encodeURI(e.target.entry.value)
           const URL = baseURL + entry + '?maxRecipes=10'
@@ -17,7 +20,7 @@ function Home() {
             method: 'GET',
             headers: {
               'X-RapidAPI-Host': 'recipesapi2.p.rapidapi.com',
-              'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`
+              'X-RapidAPI-Key': 'bd6b878c0bmshfadcc5873b4a741p16d104jsndb1d935fefd5'
             }
           }
           console.log(URL)
@@ -37,11 +40,11 @@ function Home() {
             label.innerText = "No results! Try a different food, or wait a little while and try again"
           }
         }
-        fetchData()
+        fetchData()*/
     }
     return (
         <div className="App" style={styles.home}>
-          <p style={styles.intro}>Enter a food and this app will search for recipes</p>
+          <p style={styles.intro}>Enter a food and this app will perform a search using the RecipesAPI at https://rapidapi.com/Hrishi1999/api/recipesapi2/</p>
             <form id="form" onSubmit={addItem} style={styles.form}>
               <label id="label" htmlFor="entry">Enter a meal here</label>
               <div style={styles.textField}>
@@ -64,7 +67,7 @@ const styles = {
   intro: {
     fontSize: '2rem',
     color: '#fff',
-    textShadow: '5px 5px 5px black',
+    textShadow: '1px 1px 0px black',
     margin: '2rem',
     textAlign: 'center'
   },

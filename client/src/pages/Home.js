@@ -9,6 +9,7 @@ function Home() {
     const addItem = e => {
         e.preventDefault()
         async function fetchData(){
+          console.log(`${process.env.REACT_APP_API_KEY}`)
           const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
           const entry = encodeURI(e.target.entry.value)
           const URL = baseURL + entry + '?maxRecipes=10'

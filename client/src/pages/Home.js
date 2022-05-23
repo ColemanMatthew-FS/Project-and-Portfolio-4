@@ -9,10 +9,10 @@ function Home() {
 
     const addItem = e => {
         e.preventDefault()
-        const recipeData = Test.data
+        /*const recipeData = Test.data
         console.log(recipeData)
-        navigate(`/Project-and-Portfolio-4/Results`, { state: { recipeData }})
-        /*async function fetchData(){
+        navigate(`/Project-and-Portfolio-4/Results`, { state: { recipeData }})*/
+        async function fetchData(){
           const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
           const entry = encodeURI(e.target.entry.value)
           const URL = baseURL + entry + '?maxRecipes=10'
@@ -40,7 +40,7 @@ function Home() {
             label.innerText = "No results! Try a different food, or wait a little while and try again"
           }
         }
-        fetchData()*/
+        fetchData()
     }
     return (
         <div className="App" style={styles.home}>

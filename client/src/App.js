@@ -15,9 +15,9 @@ function App() {
       <main style={styles.main}>
         <section style={styles.subContainer}>
           <Routes>
-            <Route path="/" component={<Home />} />
-            <Route path="Results" component={<Results />} />
-            <Route path="Details" component={<Details />} />
+            <Route path="/" element={<Home />} />
+            <Route path="Results" element={<Results />} />
+            <Route path="Details" element={<Details />} />
           </Routes>
         </section>
       </main>

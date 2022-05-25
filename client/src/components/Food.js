@@ -3,10 +3,12 @@ import React from 'react'
 const Food = props => {
     return (
         <article style={styles.foodContainer} onClick={props.seeMore}>
+            {/* Takes the image from the API results */}
             <div style={styles.imageContainer}>
                 <img src={props.recipeInfo.image} alt={props.recipeInfo.name} />
             </div>
             <section style={styles.infoSection}>
+                {/* Takes the recipe name, protein, calories, time, and servings from the API */}
                 <h2 style={styles.infoHeader}>{props.recipeInfo.name}</h2>
                 <div>
                     <ul style={styles.infoBox}>

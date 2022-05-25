@@ -17,6 +17,7 @@ function Details() {
                 background: `no-repeat center/100% url(${background})`,
                 width: '100%'}}>
             </div>
+            {/* Details about the recipe are in a foodInfo component */}
             {location && <FoodInfo key={0} recipeInfo={location.state.newRecipe[0]} />}
         </div>
     )

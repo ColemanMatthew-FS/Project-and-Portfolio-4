@@ -13,6 +13,8 @@ function Home() {
         console.log(recipeData)
         navigate(`/Project-and-Portfolio-4/Results`, { state: { recipeData }})*/
         async function fetchData(){
+          let label = document.getElementById("label")
+          label.innerText = "Searching..."
           const baseURL = 'https://recipesapi2.p.rapidapi.com/recipes/'
           const entry = encodeURI(e.target.entry.value)
           const URL = baseURL + entry + '?maxRecipes=10'
@@ -29,14 +31,13 @@ function Home() {
           .catch(err => console.log(err))
           const result = await response.json()
           console.log(result.data)
-          if (result.data.length > 0){
+          if (result.data && result.data.length > 0){
             const recipeData = result.data
             console.log(recipeData)
             //sends the response to the Results page
             navigate(`./Results`, { state: { recipeData }})
           }
           else {
-            let label = document.getElementById("label")
             label.innerText = "No results! Try a different food, or wait a little while and try again"
           }
         }
@@ -44,7 +45,7 @@ function Home() {
     }
     return (
         <div className="App" style={styles.home}>
-          <p style={styles.intro}>Enter a food and this app will perform a search using the RecipesAPI at https://rapidapi.com/Hrishi1999/api/recipesapi2/</p>
+          <p style={styles.intro}>Enter a food and this app will search for recipes</p>
             <form id="form" onSubmit={addItem} style={styles.form}>
               <label id="label" htmlFor="entry">Enter a meal here</label>
               <div style={styles.textField}>

@@ -11,18 +11,21 @@ const FoodInfo = props => {
             <p style={styles.time}>{props.recipeInfo.time.total}</p>
             <div style={styles.backgroundDiv}>
                 <article style={styles.infoArticle}>
+                    {/* This column contains the ingredients */}
                     <section style={styles.infoSection}>
                         <h3>Ingredients</h3>
                         <ol style={styles.list}>
                             {props.recipeInfo.ingredients.map((element, i) => <li key={i}>{element}</li>)}
                         </ol>
                     </section>
+                    {/* This column contains the instructions */}
                     <section style={styles.infoSection}>
                         <h3>Instructions</h3>
                         <ol style={styles.list}>
                             {props.recipeInfo.instructions.map((element, i) => <li key={i}>{element}</li>)}
                         </ol>
                     </section>
+                    {/* This column contains nutritional facts */}
                     <section style={styles.infoSection}>
                         <h3>Nutritonal Facts</h3>
                         {/* the Nurtients object is split into an array of its keys and values,

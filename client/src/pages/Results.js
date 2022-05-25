@@ -19,6 +19,7 @@ function Results() {
     return (
         <section>
             <h2 style={styles.resultsHeader}>There are recipes for the following foods, obtained using the RecipesAPI by Pickle.</h2>
+            {/* Food card articles are used for styling */}
             <article style={styles.foodCards}>
                 {/* If there's anything in the state, it's mapped into Food objects (which consist of a paragraph) */}
                 {location && location.state.recipeData.map((element, i) => <Food key={i} recipeInfo={element} seeMore={() =>loadInfo(i)} />)}

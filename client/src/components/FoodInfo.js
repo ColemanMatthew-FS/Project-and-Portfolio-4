@@ -3,7 +3,9 @@ import React from 'react'
 const FoodInfo = props => {
     const nutrientInfo = (Object.entries(props.recipeInfo.nutrients))
     console.log(nutrientInfo)
-    console.log(nutrientInfo[0][0])
+    if (nutrientInfo.length > 0){
+        console.log(nutrientInfo[0][0])
+    }
     //The FoodInfo object maps through the objects from Details.js and populate HTML elements
     return (
         <article style={styles.foodInfoContainer}>
@@ -31,7 +33,7 @@ const FoodInfo = props => {
                         {/* the Nurtients object is split into an array of its keys and values,
                         which are then added to a list */}
                         <ol style={styles.nutritionList}>
-                            {nutrientInfo.map((element, i) => 
+                            {nutrientInfo && nutrientInfo.map((element, i) => 
                                 <li key={i} style={styles.nutritionListItem}>
                                     <p>{element[0]}:</p>
                                     <p>{element[1]}</p>

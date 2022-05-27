@@ -2,16 +2,12 @@ import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
 import Background from '../images/header.jpg'
-import Test from '../test.json'
 
 function Home() {
     let navigate = useNavigate()
 
     const addItem = e => {
         e.preventDefault()
-        /*const recipeData = Test.data
-        console.log(recipeData)
-        navigate(`/Project-and-Portfolio-4/Results`, { state: { recipeData }})*/
         async function fetchData(){
           let label = document.getElementById("label")
           label.innerText = "Searching..."
